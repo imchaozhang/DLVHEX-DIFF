@@ -1,0 +1,10 @@
+epoch_test(X) :- &epoch["$TIMENOW"](X).
+
+epoch_test(X) :- &epoch["$TODAY"](X).
+
+epoch_test(X) :- &epoch["2014-09-04T21:24:38.998Z"](X).
+
+epoch_test(X) :- &epoch["2014-09-04T21:24:38-07:00"](X).
+
+
+
