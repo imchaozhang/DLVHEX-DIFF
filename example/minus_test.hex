@@ -1,0 +1,2 @@
+minus_result(X) :- &minus[Current,1000](X),time_now(Current).
+time_now(Current) :- &epoch["$TIMENOW"](Current).

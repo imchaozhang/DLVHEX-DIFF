@@ -1,0 +1,2 @@
+plus_result(X) :- &plus[Current,1000](X),time_now(Current).
+time_now(Current) :- &epoch["$TIMENOW"](Current).

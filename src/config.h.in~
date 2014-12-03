@@ -1,32 +1,5 @@
 /* src/config.h.in.  Generated from configure.ac by autoheader.  */
 
-/* Version number of DLVHEX_ABI */
-#undef DLVHEX_ABI_VERSION
-
-/* Major version number of DLVHEX_ABI */
-#undef DLVHEX_ABI_VERSION_MAJOR
-
-/* Micro version number of DLVHEX_ABI */
-#undef DLVHEX_ABI_VERSION_MICRO
-
-/* Minor version number of DLVHEX_ABI */
-#undef DLVHEX_ABI_VERSION_MINOR
-
-/* Defined if the requested minimum BOOST version is satisfied */
-#undef HAVE_BOOST
-
-/* Define to 1 if you have <boost/algorithm/string.hpp> */
-#undef HAVE_BOOST_ALGORITHM_STRING_HPP
-
-/* Define to 1 if you have <boost/scoped_ptr.hpp> */
-#undef HAVE_BOOST_SCOPED_PTR_HPP
-
-/* Define to 1 if you have <boost/shared_ptr.hpp> */
-#undef HAVE_BOOST_SHARED_PTR_HPP
-
-/* Define to 1 if you have <boost/tokenizer.hpp> */
-#undef HAVE_BOOST_TOKENIZER_HPP
-
 /* Define to 1 if you have the <dirent.h> header file, and it defines `DIR'.
    */
 #undef HAVE_DIRENT_H
@@ -108,18 +81,6 @@
 
 /* Define to 1 if you have the ANSI C header files. */
 #undef STDC_HEADERS
-
-/* Version number of STRINGPREFIXPLUGIN */
-#undef STRINGPREFIXPLUGIN_VERSION
-
-/* Major version number of STRINGPREFIXPLUGIN */
-#undef STRINGPREFIXPLUGIN_VERSION_MAJOR
-
-/* Micro version number of STRINGPREFIXPLUGIN */
-#undef STRINGPREFIXPLUGIN_VERSION_MICRO
-
-/* Minor version number of STRINGPREFIXPLUGIN */
-#undef STRINGPREFIXPLUGIN_VERSION_MINOR
 
 /* Version number of package */
 #undef VERSION
