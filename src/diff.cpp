@@ -149,8 +149,7 @@ namespace dlvhex {
 			}
 	};  
 	  
-	  
-	  
+	 	  
 	  
     // Numerical Plus Plugin
     class PlusAtom : public PluginAtom
@@ -220,16 +219,71 @@ namespace dlvhex {
 	  
 	  
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+    // Numerical Multiply Plugin
+    class MultiplyAtom : public PluginAtom
+    {
+		public:
+      
+			MultiplyAtom() : PluginAtom("multiply", 1)
+			{
+
+				addInputConstant();
+                addInputConstant();
+	
+				setOutputArity(1);
+			}
+      
+			virtual void
+			retrieve(const Query& query, Answer& answer) throw (PluginError)
+			{
+				Registry &registry = *getRegistry();
+                
+                std::string in1, in2;
+                double d[2];
+                
+                
+                for(int i = 0; i<2;i++){
+                    
+                    if(query.input[i].isIntegerTerm()){
+                    
+                        d[i] = double(query.input[i].address);
+
+                    
+                    }
+                    else
+                    {
+                        
+                        d[i] = std::atof((registry.terms.getByID(query.input[i]).getUnquotedString()).c_str());
+                    }
+                }
+                
+            
+                std::ostringstream result;
+				unsigned long long l_result;
+				
+				double d_result = d[0] * d[1];
+				
+				if (d_result >= 100000000000){
+					l_result = (long)d_result;
+					result << l_result;
+					
+				}
+				else 
+                result << d_result;
+                
+                
+
+                Tuple out;
+                
+                Term term(ID::MAINKIND_TERM | ID::SUBKIND_TERM_CONSTANT, '"' + result.str() + '"');
+                out.push_back(registry.storeTerm(term));
+				
+                answer.get().push_back(out);
+				
+                
+                
+			}
+	};    
 	  
 	  
     // Time Convert Plugin
@@ -373,6 +427,7 @@ namespace dlvhex {
 				ret.push_back(PluginAtomPtr(new DIFFAtom, PluginPtrDeleter<PluginAtom>()));
 				ret.push_back(PluginAtomPtr(new MinusAtom, PluginPtrDeleter<PluginAtom>()));
 				ret.push_back(PluginAtomPtr(new PlusAtom, PluginPtrDeleter<PluginAtom>()));
+				ret.push_back(PluginAtomPtr(new MultiplyAtom, PluginPtrDeleter<PluginAtom>()));
                 ret.push_back(PluginAtomPtr(new EpochAtom, PluginPtrDeleter<PluginAtom>()));
 			
 				return ret;

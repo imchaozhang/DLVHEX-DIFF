@@ -1,0 +1,1 @@
+multiply_result(X) :- &multiply["32777839992","33889"](X).
